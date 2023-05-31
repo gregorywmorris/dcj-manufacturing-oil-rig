@@ -8,7 +8,7 @@ p = r'./data/'
 
 for i in range(60):
     var_dict = {}
-    start_date = datetime.datetime(2008,4,26,0,0)
+    start_date = datetime.datetime(2008,3,26,0,0)
     # Calculate the timedelta for each iteration
     timedelta_per_iteration = datetime.timedelta(days=92 * i) 
 
