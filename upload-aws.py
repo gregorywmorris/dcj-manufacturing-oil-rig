@@ -15,7 +15,7 @@ s3 = boto3.client(
 bucket_name = 'well-logs'
 
 response = s3.create_bucket(
-    Bucket=bucket_name,
+    Bucket=bucket_name
 )
 
 print(response)
