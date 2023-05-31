@@ -1,0 +1,48 @@
+Manufacturing Oil Rig Prompt
+For this challenge, you’ll be working as a data professional for the industrial manufacturing company, EnergyMobil. Your role is to provide value to the 
+company using data to run the manufacturing plant more efficiently. Here are your tasks:
+
+
+
+
+
+Data Analyst:
+
+You will be tasked with creating a manufacturing monitoring dashboard that allows management to understand the manufacturing process in more detail.
+Start With Combined Data Set 👉 https://raw.githubusercontent.com/AveryData/hp-pred/main/HourlyData.csv (Right click ⇒ Save As ⇒ CSV)
+
+
+Data Scientist
+
+You will be tasked with creating a fault detection & classification model to discover when & what caused the process to degrade.
+Start With Combined Data Set 👉 https://raw.githubusercontent.com/AveryData/hp-pred/main/HourlyData.csv (Right click ⇒ Save As ⇒ CSV)
+
+
+Data Engineer
+
+You will be tasked with creating a uniform combined version of the data set. Please transform all the data text files into a combined CSV & SQL database.
+Download Raw Data 👉 https://archive.ics.uci.edu/ml/machine-learning-databases/00447/
+
+
+Background
+
+The data set comes from a real hydraulic rig system. This hydraulic rig is used to drill oil out of the ground. It has 4 main controls: the cooler setting, 
+the valve setting, the pump setting, and the accumulator setting. The rig has sensors in different areas measuring the pressure, volumetric flows, and temperatures.
+
+
+
+Oil wells can make $500,000+ / day, so these machines are highly valuable. Making sure we run them with data will be huge for our company.
+
+Avery will be focusing on being the data analyst task this month.
+
+
+
+The original data set is from UCI Machine Learning Repository
+
+
+
+Data Set Description 👉 https://archive.ics.uci.edu/ml/datasets/condition+monitoring+of+hydraulic+systems#
+
+
+
+You can get started now or wait until the kickoff event!
