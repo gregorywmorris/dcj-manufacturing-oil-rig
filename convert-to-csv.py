@@ -31,7 +31,7 @@ for i in range(60):
     df = pd.DataFrame.from_dict(var_dict)
 
     # demarcate the 1 hour iteration across the entire tracking period
-    df['iteration'] = range(0, 0 + (60 * df.shape[0]), 60)
+    df['cumulative_minutes'] = range(0, 0 + (60 * df.shape[0]), 60)
 
     # demarcate cohort for each of the 60 test periods
     df['cohort'] = [i+1 for cohort in range(df.shape[0])]
