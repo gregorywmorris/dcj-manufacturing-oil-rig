@@ -1,4 +1,9 @@
-CREATE TABLE `oilWellLogs` (
+
+CREATE DATABASE energymobile;
+
+use energymobile;
+
+CREATE TABLE `wellTests` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
   `s2` float,
   `ps1` float,
@@ -15,7 +20,7 @@ CREATE TABLE `oilWellLogs` (
   `vs1` float,
   `cumulative_minutes` integer,
   `cohort` integer,
-  `date_time` date_time,
+  `date_time` datetime,
   `cooler_condition` integer,
   `valve_condition` integer,
   `internal_pump_leakage` integer,

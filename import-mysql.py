@@ -8,7 +8,7 @@ connection = connect(
     host='localhost',
     user= secrets.mysql_username,
     password= secrets.mysql_password,
-    database='your_database'
+    database='energymobile',
 )
 
 # object to exicute the sql queries
@@ -33,7 +33,7 @@ for filename in os.listdir(csv_directory):
         column_names = ', '.join(columns)
 
         # Generate the SQL query
-        sql = f"INSERT INTO your_table ({column_names}) VALUES ({placeholders})"
+        sql = f"INSERT INTO welltests ({column_names}) VALUES ({placeholders})"
 
         # Iterate over the rows in the DataFrame
         for row in df.itertuples(index=False):
