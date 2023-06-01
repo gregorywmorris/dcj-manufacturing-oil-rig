@@ -3,9 +3,15 @@ CREATE DATABASE energymobile;
 
 use energymobile;
 
+DROP TABLE `wellTests`;
+
 CREATE TABLE `wellTests` (
   `id` integer PRIMARY KEY AUTO_INCREMENT,
-  `s2` float,
+  `ce` float,
+  `cp` float,
+  `eps1` float,
+  `fs1` float,
+  `fs2` float,
   `ps1` float,
   `ps2` float,
   `ps3` float,

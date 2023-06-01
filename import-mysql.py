@@ -14,7 +14,7 @@ connection = connect(
 # object to exicute the sql queries
 cursor = connection.cursor()
 
-csv_directory = './data/'
+csv_directory = './logs/'
 
 for filename in os.listdir(csv_directory):
     if filename.endswith('.csv'):
