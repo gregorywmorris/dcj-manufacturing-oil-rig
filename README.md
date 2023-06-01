@@ -22,12 +22,15 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 
 ## System Design
 * Data 
-    * Used internally and does not meet the requiremnts of big data. 
+    * Used internally and does not meet the requirements of big data. 
     * Currently in table format, whitespace deliminated.
     * Data is provided in 3 month batches.
     * SOLUTION: Use current onsite MySQL database and S3 bucket.
 * Process flow
     * Inital: Manual batch processing to get intial data into production.
-    * Futurestate: Schedule processing at the end of every chort.
+    * Futurestate: Schedule processing at the end of every chort. Additional clarification needed from operations.
+        * Can the data be provided at a set date and time?
+        * Is there lag time in data vailabiliy once the cohort completes?
+        * Can format or information be modified by sending system?
 
 ![system design](images/system-design.jpg)
