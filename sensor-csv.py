@@ -41,20 +41,20 @@ for files in os.listdir(path=p):
         df['date_time'] = datetime_series
 
         # oil well condition
-        profile_df = pd.read_table(r'./outcomes/profile.txt', index_col=False, delim_whitespace=True,header=None)
+        # profile_df = pd.read_table(r'./outcomes/profile.txt', index_col=False, delim_whitespace=True,header=None)
 
-        profile_columns = ['cooler_condition','valve_condition','internal_pump_leakage','hydrolic_acucumlator_bar','stable_flag']
+        # profile_columns = ['cooler_condition','valve_condition','internal_pump_leakage','hydrolic_acucumlator_bar','stable_flag']
 
-        profile_df.columns = profile_columns
+        # profile_df.columns = profile_columns
 
-        for c in profile_columns:
-            df[c]= profile_df[c].values
+        # for c in profile_columns:
+        #     df[c]= profile_df[c].values
 
         # normalize  column headers
         df.columns = [x.lower() for x in df.columns]
 
-        #export
-        #TodaysDate = time.strftime('%d-%m-%Y') #use for interval updates
+        # export
+        # TodaysDate = time.strftime('%d-%m-%Y') # use for interval updates
         csv_filename = f'{files}.csv'
 
         df.to_csv(r'./logs/'+csv_filename, index=False)

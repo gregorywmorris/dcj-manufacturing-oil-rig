@@ -2,62 +2,54 @@ import pandas as pd
 import os
 import datetime
 
-
-# pull read the txt files and create csv files
+# pull read the txt files and create a single csv file
 p = r'./data/'
+var_dict = {}
 
-for i in range(60):
-    var_dict = {}
-    start_date = datetime.datetime(2008,3,26,0,0)
-    # Calculate the timedelta for each iteration
-    timedelta_per_iteration = datetime.timedelta(days=92 * i) 
+for files in os.listdir(path=p):
+    file_name, file_ext = os.path.splitext(files)
+    df = pd.read_table(f'./data/{files}', index_col=False, delim_whitespace=True, header=None, encoding='latin-1')
 
-    # Update the start_date by adding the timedelta
-    start_date_updated = start_date + timedelta_per_iteration
+    # stack the columns vertically
+    df_stacked = df.stack()
 
-    # Calculate the end_date based on the updated start_date
-    end_date_updated = start_date_updated + datetime.timedelta(hours=2204)
-    # update times for each iteration
-    start_date = start_date_updated
-    end_date = end_date_updated
+    # add the stacked data to the dictionary
+    var_dict[file_name] = df_stacked
 
-    for files in os.listdir(path=p): 
-        file_name, file_ext = os.path.splitext(files)
-        
-        var_dict[file_name] = pd.read_table(f'./data/{files}', index_col=False, delim_whitespace=True, header=None,usecols=[i],encoding='latin-1')
-        
-        var_dict[file_name] = var_dict[file_name].stack()
-        
-    df = pd.DataFrame.from_dict(var_dict)
+# create a DataFrame from the dictionary
+df = pd.DataFrame.from_dict(var_dict)
 
-    # demarcate the 1 hour iteration across the entire tracking period
-    df['cumulative_minutes'] = range(0, 0 + (60 * df.shape[0]), 60)
+# calculate the total number of rows
+total_rows = df.shape[0]
 
-    # demarcate cohort for each of the 60 test periods
-    df['cohort'] = [i+1 for cohort in range(df.shape[0])]
+# demarcate the 1-hour iteration across the entire tracking period
+df['cumulative_minutes'] = range(0, 0 + (60 * total_rows), 60)
 
-    # Create a datetime series
-    datetime_series = pd.date_range(start=start_date, end=end_date, freq='H')
+# insert the value of 1 and increase by 1 for every 2205 rows
+df['cohort'] = [(row // 2205) + 1 for row in range(total_rows)]
 
-    df['date_time'] = datetime_series
+# create a datetime series
+start_date = datetime.datetime(2008, 3, 26, 0, 0)
+end_date = start_date + datetime.timedelta(hours=(total_rows // 60) - 1)
+datetime_series = pd.date_range(start=start_date, end=end_date, freq='H')
 
-    # oil well condition
-    profile_df = pd.read_table(r'./outcomes/profile.txt', index_col=False, delim_whitespace=True,header=None)
+# adjust the datetime series to match the number of rows in the DataFrame
+datetime_series = datetime_series[:total_rows % 2205]
 
-    profile_columns = ['cooler_condition','valve_condition','internal_pump_leakage','hydrolic_acucumlator_bar','stable_flag']
+df['date_time'] = datetime_series.repeat(2205)
 
-    profile_df.columns = profile_columns
+# read the profile.txt file for additional columns
+profile_df = pd.read_table(r'./outcomes/profile.txt', index_col=False, delim_whitespace=True, header=None)
+profile_columns = ['cooler_condition', 'valve_condition', 'internal_pump_leakage', 'hydraulic_accumulator_bar', 'stable_flag']
+profile_df.columns = profile_columns
 
-    for c in profile_columns:
-        df[c]= profile_df[c].values
+# add the profile columns to the main DataFrame
+for c in profile_columns:
+    df[c] = profile_df[c].values
 
-    # normalize  column headers
-    df.columns = [x.lower() for x in df.columns]
+# normalize column headers
+df.columns = [x.lower() for x in df.columns]
 
-    #export
-    #TodaysDate = time.strftime('%d-%m-%Y') #use for interval updates
-    csv_filename = f'oil-well-log{i}.csv'
-
-    df.to_csv(r'./logs/'+csv_filename, index=False)
-
-
+# export the DataFrame to a CSV file
+csv_filename = f'all_data.csv'
+df.to_csv(r'./logs/' + csv_filename, index=False)
