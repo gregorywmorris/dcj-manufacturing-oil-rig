@@ -52,7 +52,7 @@ CREATE TABLE stable_flag (
 );
 
 CREATE TABLE condition (
-  condition_id int not null,
+  condition_id int not null auto_increment,
   cooler_condition int,
   valve_condition int,
   pump_leakage int,

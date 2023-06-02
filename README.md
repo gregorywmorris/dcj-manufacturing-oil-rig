@@ -29,7 +29,7 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
     * Data scientists need access to csv's in AWS S3.
     * SOLUTION: Use current onsite MySQL database and S3 bucket.
 * Database schema
-    * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) (see below)
+    * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) (see Snowflake schema below)
 * Process flow
     * Inital: Manual batch processing to get intial data into production.
     * Future state: Schedule processing at the end of every chort. Additional clarification needed from operations.
