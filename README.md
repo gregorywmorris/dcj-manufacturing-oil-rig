@@ -1,4 +1,4 @@
-# Energy Mobile
+![system design](images/energy-mobile-logo.jpg)
 Data Career Jumpstart - unguided project
 
 ## Project Prompt:
