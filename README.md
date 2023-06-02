@@ -8,7 +8,7 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 3. Migrate the data to a database for future use.
 4. Complete missing data:
     * Fill in missing dates.
-    * Provide cumlative 60 minute  
+    * Provide cumlative 60 minute intervals
 
 ### Apriori
 1. There are 15 years worth of data.
