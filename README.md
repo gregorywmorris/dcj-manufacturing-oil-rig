@@ -25,11 +25,11 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 * Data 
     * Used internally and does not meet the requirements of big data. 
     * Currently in table format, whitespace deliminated.
-    * Data is provided in 3 month batches.
+    * Data is provided in 3 month batches/cohorts.
     * Data scientists need access to csv's in AWS S3.
     * SOLUTION: Use current onsite MySQL database and S3 bucket.
 * Database schema
-    * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) 
+    * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) (see below)
 * Process flow
     * Inital: Manual batch processing to get intial data into production.
     * Futurestate: Schedule processing at the end of every chort. Additional clarification needed from operations.
@@ -38,3 +38,5 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
         * Can format or information be modified by sending system?
 
 ![system design](images/system-design.jpg)
+
+![database design](images/db-design.jpg)
