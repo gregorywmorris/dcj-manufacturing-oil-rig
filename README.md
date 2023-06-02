@@ -1,4 +1,4 @@
-![system design](images/energy-mobile-logo-long.jpg)
+![system design](images/energy-mobile-logo2.jpg)
 
 Data Career Jumpstart - unguided project
 
