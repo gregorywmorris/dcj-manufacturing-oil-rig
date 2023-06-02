@@ -17,7 +17,7 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 3. Data collection:
     * Data comes from legacy systems, all changes must be doen after you recieve the data.
     * The data is collected in 3 month cohorts starting at midnight the first day. 
-    * Data is recorded every 60 minutes.
+    * Data is considered as recorded every 60 minutes for project perposes. 
     * The last day will be a few hours short for schededuled maintence after each cohort.
 4. There is only one profile.txt, reused as if there was one for each cohort.
 
@@ -28,6 +28,8 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
     * Data is provided in 3 month batches.
     * Data scientists need access to csv's in AWS S3.
     * SOLUTION: Use current onsite MySQL database and S3 bucket.
+* Database schema
+    * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) 
 * Process flow
     * Inital: Manual batch processing to get intial data into production.
     * Futurestate: Schedule processing at the end of every chort. Additional clarification needed from operations.

@@ -3,3 +3,4 @@ logs/
 outcomes/
 ignore/
 env/
+aws_s3/
