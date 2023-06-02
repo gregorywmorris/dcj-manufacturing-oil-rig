@@ -51,14 +51,14 @@ CREATE TABLE stable_flag (
   PRIMARY KEY (flag_value)
 );
 
-CREATE TABLE condition (
-  condition_id int not null auto_increment,
+CREATE TABLE profile (
+  profile_id int not null auto_increment,
   cooler_condition int,
   valve_condition int,
   pump_leakage int,
   hydraulic_accumulator int,
   stable_flag int,
-  PRIMARY KEY (condition_id),
+  PRIMARY KEY (profile_id),
   FOREIGN KEY (cooler_condition) REFERENCES cooler_condition(cooler_id),
   FOREIGN KEY (valve_condition) REFERENCES valve_condition(valve_id),
   FOREIGN KEY (pump_leakage) REFERENCES pump_leakage(leakage_level),
