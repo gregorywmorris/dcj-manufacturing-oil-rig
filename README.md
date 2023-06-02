@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/gregorywmorris/dcj-manufacturing-oil-rig/main/images/energy-mobile-logo-long.jpg" alt="logo"/>
+  <img src="https://raw.githubusercontent.com/gregorywmorris/dcj-manufacturing-oil-rig/main/images/energy-mobile-logo2.jpg" alt="logo"/>
 </p>
 
 
