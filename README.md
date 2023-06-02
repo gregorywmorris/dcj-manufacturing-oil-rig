@@ -25,6 +25,7 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
     * Used internally and does not meet the requirements of big data. 
     * Currently in table format, whitespace deliminated.
     * Data is provided in 3 month batches.
+    * Data scientists need access to it in AWS S3
     * SOLUTION: Use current onsite MySQL database and S3 bucket.
 * Process flow
     * Inital: Manual batch processing to get intial data into production.
