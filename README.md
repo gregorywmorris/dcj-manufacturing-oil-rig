@@ -16,7 +16,7 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
     * Add a date-time column.
     * Provide cumulative 60-minute intervals.
 
-### Apriori
+### Starting Knowledge
 1. There are 15 years' worth of data.
 2. The start date is 3/26/2008.
 3. Data collection:
