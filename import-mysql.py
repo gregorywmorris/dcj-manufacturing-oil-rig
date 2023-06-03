@@ -33,7 +33,7 @@ for filename in os.listdir(profile_directory):
         column_names = ', '.join(columns)
 
         # Generate the SQL query
-        sql = f"INSERT INTO profile ({column_names}) VALUES ({placeholders})"
+        sql = f"INSERT INTO target_condition ({column_names}) VALUES ({placeholders})"
 
         # Iterate over the rows in the DataFrame
         for row in df.itertuples(index=False):

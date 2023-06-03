@@ -8,8 +8,9 @@ DROP TABLE IF EXISTS valve_condition;
 DROP TABLE IF EXISTS internal_pump_leakage;
 DROP TABLE IF EXISTS hydraulic_accumulator_bar;
 DROP TABLE IF EXISTS stable_flag;
-DROP TABLE IF EXISTS condition;
+DROP TABLE IF EXISTS target_condition;
 DROP TABLE IF EXISTS sensor_data;
+
 
 CREATE TABLE sensors (
   sensor_name varchar(255) not null,
@@ -51,14 +52,14 @@ CREATE TABLE stable_flag (
   PRIMARY KEY (flag_value)
 );
 
-CREATE TABLE profile (
-  profile_id int not null auto_increment,
+CREATE TABLE target_condition (
+  condition_id int not null auto_increment,
   cooler_condition int,
   valve_condition int,
   internal_pump_leakage int,
   hydraulic_accumulator_bar int,
   stable_flag int,
-  PRIMARY KEY (profile_id),
+  PRIMARY KEY (condition_id),
   FOREIGN KEY (cooler_condition) REFERENCES cooler_condition(cooler_id),
   FOREIGN KEY (valve_condition) REFERENCES valve_condition(valve_id),
   FOREIGN KEY (internal_pump_leakage) REFERENCES internal_pump_leakage(leakage_level),
@@ -69,14 +70,14 @@ CREATE TABLE profile (
 CREATE TABLE sensor_data (
   data_id int not null auto_increment,
   sensor_name varchar(255),
-  time_stamp datetime,
+  date_time datetime,
   cumulative_minutes int,
   cohort int,
   sensor_value int,
-  condition int,
+  target_condition int,
   PRIMARY KEY (data_id),
   FOREIGN KEY (sensor_name) REFERENCES sensors(sensor_name),
-  FOREIGN KEY (condition) REFERENCES condition(condition_id)
+  FOREIGN KEY (target_condition) REFERENCES target_condition(condition_id)
 );
 
 INSERT INTO cooler_condition
@@ -102,6 +103,7 @@ VALUES
   ('PS4', 'Pressure', 'bar', 100),
   ('PS5', 'Pressure', 'bar', 100),
   ('PS6', 'Pressure', 'bar', 100),
+  ('EPS1', 'motor power','w', 100),
   ('FS1', 'Volume flow', 'l/min', 10),
   ('FS2', 'Volume flow', 'l/min', 10),
   ('TS1', 'Temperature', 'celsius', 1),
