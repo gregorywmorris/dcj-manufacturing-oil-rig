@@ -6,40 +6,46 @@
 Data Career Jumpstart - unguided project
 
 ## Project Prompt:
-Oil wells can make $500,000+ / day, so these machines are highly valuable. Making sure we run them with data will be huge for our company. The technicians have been storing the well test in text files localy, the data scientists would like to review the data but it's not in a usable format. 
-1. Convert the files to csv's for the data scientist.
-    * The scientists use AWS Sagemaker and need the data in an S3 bucket so they can access it.
+Oil wells can make $500,000+ / day, so these machines are highly valuable. Making sure we run them with data will be huge for our company. The technicians have been storing the oil well test in text files locally, the data scientists would like to review the data but it's not in a usable format. 
+1. Convert the files to CSV for the data scientist.
+    * See the example template CSV for the desired format.
+    * Add profile data.
+    * The scientists use AWS Sagemaker.
 3. Migrate the data to a database for future use.
 4. Complete missing data:
-    * Fill in missing dates.
-    * Provide cumlative 60 minute intervals
+    * Add a date-time column.
+    * Provide cumulative 60-minute intervals.
 
 ### Apriori
-1. There are 15 years worth of data.
-2. Start date is 3/26/2008.
+1. There are 15 years' worth of data.
+2. The start date is 3/26/2008.
 3. Data collection:
-    * Data comes from legacy systems, all changes must be doen after you recieve the data.
-    * The data is collected in 3 month cohorts starting at midnight the first day. 
-    * Data is considered as recorded every 60 minutes for project perposes. 
-    * The last day will be a few hours short for schededuled maintence after each cohort.
+    * Data comes from legacy systems, all changes must be done after you receive the data.
+    * The data is collected in 3-month cohorts starting at midnight on the first day. 
+    * Data is considered as recorded every 60 minutes for project purposes. 
+    * The last day will be a few hours short for scheduled maintenance after each cohort.
 4. There is only one profile.txt, reuse data as if there was one for each cohort.
 
 ## System Design
-* Data 
+* Data: 
+    * Currently in table format and is tab-delimited.
     * Used internally and does not meet the requirements of big data. 
-    * Currently in table format, tab deliminated.
-    * Data is provided in 3 month batches/cohorts.
-    * Data scientists need access to csv's in AWS S3.
-    * SOLUTION: Use current onsite MySQL database and S3 bucket.
-* Database schema
+    * Data is provided in 3-month batches/cohorts.
+    * Data scientists need access to CSV format and use AWS Sagemaker.
+    * SOLUTION: Use the current onsite MySQL database
+        * REASON: The limited data volume and limited use do not justify cloud expense when cheap local storage is available. 
+    * SOLUTION: Export a CSV from the database and import it to the S3 bucket. 
+        * REASON: This will allow Sagemaker to have access to the data in the desired format. Creating the CSV from a database query is more efficient than scripting a program to create the CSV from the text files.
+* Database schema:
     * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) (see Snowflake schema below)
-* Process flow
-    * Inital: Manual batch processing to get intial data into production.
-    * Future state: Schedule processing at the end of every chort. Additional clarification needed from operations.
+* Process flow:
+    * Initial: Manual batch processing to get historical data into production.
+    * Future state: Schedule processing at the end of every cohort. Additional clarification is needed from operations.
         * Can the data be provided at a set date and time?
-        * Is there lag time in data availabiliy once the cohort completes?
-        * Can format or information be modified by the sending system?
+        * Is there a lag time in data availability once the cohort completes?
+        * Can the format or information be modified by the sending system?
 
 ![system design](images/system-design.jpg)
 
 ![database design](images/db-design.jpg)
+

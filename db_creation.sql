@@ -73,7 +73,7 @@ CREATE TABLE sensor_data (
   date_time datetime,
   cumulative_minutes int,
   cohort int,
-  sensor_value int,
+  sensor_value float,
   target_condition int,
   PRIMARY KEY (data_id),
   FOREIGN KEY (sensor_name) REFERENCES sensors(sensor_name),

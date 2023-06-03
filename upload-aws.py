@@ -1,6 +1,7 @@
 import boto3
 import os
 import ignore.secrets as secrets
+import shutil
 
 
 # establish a connection
@@ -21,7 +22,7 @@ response = s3.create_bucket(
 print(response)
 
 # upload files
-csv_directory = './logs/'
+csv_directory = './aws_s3/'
 for filename in os.listdir(csv_directory):
     file_path = os.path.join(csv_directory, filename)
     s3.upload_file(file_path, bucket_name, filename)
@@ -34,3 +35,15 @@ if objects:
         print(obj['Key'])
 else:
     print("No objects found in the bucket.")
+
+# Archive files
+home_directory = './aws_s3/'
+archive_directory = './aws_s3/archive/'
+
+if not os.path.exists(archive_directory):
+    os.makedirs(archive_directory)
+
+for filename in os.listdir(home_directory):
+    source_file = os.path.join(home_directory, filename)
+    destination_folder = archive_directory
+    shutil.move(source_file, destination_folder)
