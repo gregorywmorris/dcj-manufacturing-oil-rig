@@ -1,7 +1,6 @@
 data/
 logs/
 profile/
-outcomes/
 ignore/
 env/
 aws_s3/
