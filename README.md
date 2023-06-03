@@ -56,5 +56,5 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 4. Run the `profile-csv.py` script; converts the text file to CSV.
 5. Run the `import-mysql.py` script; imports CSV data to MySQL and archive the sensor logs.
 6. Run the `export_from_db.sql` query in MySQL and save the output as a CSV to the aws_s3 folder.
-7. Run the `upload-aws.py` script; Creates a bucket if does not exist, upload the CSV in the aws_s3 folder to AWS S3, and archive the CSV.
+7. Run the `upload-aws.py` script; creates a bucket if does not exist, upload the CSV in the aws_s3 folder to AWS S3, and archive the CSV.
  
