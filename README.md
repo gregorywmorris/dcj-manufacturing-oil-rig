@@ -50,7 +50,7 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 ![database design](images/db-design.jpg)
 
 # Implementation
-1. Imported oil well sensor logs into the logs folder and import the profile file into the profile folder.
+1. Import the oil well sensor logs into the logs folder and import the profile file into the profile folder.
 2. Run the `db_creation.sql` to create the database in MySQL.
 3. Run the `tab-to-csv.py` script; converts sensor logs to CSV.
 4. Run the `profile-csv.py` script; converts the profile file to CSV.
