@@ -1,7 +1,7 @@
 import pandas as pd
 import os
 
-data_location = r'./outcomes/'
+data_location = r'./profile/'
 
 for files in os.listdir(path=data_location):
     file_name, file_ext = os.path.splitext(files)
@@ -11,4 +11,4 @@ for files in os.listdir(path=data_location):
 
     # export
     csv_filename = f'{file_name}.csv'
-    df.to_csv(r'./outcomes/' + csv_filename, index=False)
+    df.to_csv(r'./profile/' + csv_filename, index=False)
