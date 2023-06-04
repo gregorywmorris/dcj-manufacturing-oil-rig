@@ -22,14 +22,14 @@ CREATE TABLE sensors (
 
 CREATE TABLE cooler_condition (
   cooler_id int not null,
-  condition_percentage float not null,
+  cooler_percentage float not null,
   cooler_description varchar(255) not null,
   PRIMARY KEY (cooler_id)
 );
 
 CREATE TABLE valve_condition (
   valve_id int not null,
-  condition_percentage float not null,
+  valve_percentage float not null,
   valve_description varchar(255) not null,
   PRIMARY KEY (valve_id)
 );
