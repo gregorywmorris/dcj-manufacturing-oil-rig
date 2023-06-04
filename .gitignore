@@ -4,4 +4,6 @@ profile/
 ignore/
 env/
 aws_s3/
+archive/
+
 
