@@ -10,4 +10,4 @@ for files in os.listdir(path=data_location):
 
     # export
     csv_filename = f'target_condition.csv'
-    df.to_csv('./logs/' + csv_filename, index=False)
+    df.to_csv('./profile/' + csv_filename, index=False)
