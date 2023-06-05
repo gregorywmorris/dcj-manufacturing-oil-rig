@@ -16,3 +16,10 @@ for filename in os.listdir(logs_directory):
     source_file = os.path.join(logs_directory, filename)
     destination_folder = archive
     shutil.move(source_file, destination_folder)
+
+profile_directory = './profile/'
+for filename in os.listdir(profile_directory):
+    if filename.endswith('.csv'):
+        source_file = os.path.join(profile_directory, filename)
+        destination_folder = archive
+        shutil.move(source_file, destination_folder)

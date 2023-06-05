@@ -59,15 +59,17 @@ The technicians have been storing the oil well tests in text files locally, the 
 ![database design](images/db-design.jpg)
 
 # Implementation
-1. Import the oil well sensor logs into the logs folder and import the profile file into the profile folder.
-2. Run the `db_creation.sql` query; create the database in MySQL.
-3.  Create an AWS S3 bucket using AWS command line / Terraform with `s3-terraform.tf`.
+###### Infrastructure
+
+1. Run the `db_creation.sql` query; create the database in MySQL.
+1.  Create an AWS S3 bucket using AWS command line / Terraform with `s3-terraform.tf`.
 ###### ETL
-4. Run the `tab-to-csv.py` script; converts sensor logs to CSV.
-5. Run the `profile-csv.py` script; converts the profile file to CSV.
-6. Run the `import-mysql.py` script; import the log and profile CSV data to MySQL.
-7. Run the `export_from_db.sql` query in MySQL and save the output as a CSV to the aws_s3 folder.
-8. Run the `aws-upload.py` script; Uploads the database export CSV to the aws s3 folder.
-9. Run the `archive.py` script; archives the log and AWS directory CSVs.
+1. Import the oil well sensor logs into the logs folder and import the profile file into the profile folder.
+1. Run the `tab-to-csv.py` script; converts sensor logs to CSV.
+1. Run the `profile-csv.py` script; converts the profile file to CSV.
+1. Run the `import-mysql.py` script; import the log and profile CSV data to MySQL.
+1. Run the `export_from_db.sql` query in MySQL and save the output as a CSV to the aws_s3 folder.
+1. Run the `aws-upload.py` script; Uploads the database export CSV to the aws s3 folder.
+1. Run the `archive.py` script; archives the log, profile, and AWS directory CSVs.
 
 
