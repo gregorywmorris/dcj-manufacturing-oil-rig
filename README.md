@@ -67,7 +67,7 @@ The technicians have been storing the oil well tests in text files locally, the 
 5. Run the `profile-csv.py` script; converts the profile file to CSV.
 6. Run the `import-mysql.py` script; import the log and profile CSV data to MySQL.
 7. Run the `export_from_db.sql` query in MySQL and save the output as a CSV to the aws_s3 folder.
-8. Run the `upload-aws.py` script; Uploads the database export CSV to the aws s3 folder.
+8. Run the `aws-upload.py` script; Uploads the database export CSV to the aws s3 folder.
 9. Run the `archive.py` script; archives the log and AWS directory CSVs.
 
 
