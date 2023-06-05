@@ -58,7 +58,7 @@ The technicians have been storing the oil well tests in text files locally, the 
 
 # Implementation
 1. Import the oil well sensor logs into the logs folder and import the profile file into the profile folder.
-2. Run the `db_creation.sql` to create the database in MySQL.
+2. Run the `db_creation.sql` query; create the database in MySQL.
 3. Run the `tab-to-csv.py` script; converts sensor logs to CSV.
 4. Run the `profile-csv.py` script; converts the profile file to CSV.
 5. Run the `import-mysql.py` script; import the log and profile CSV data to MySQL.
