@@ -41,9 +41,9 @@ The technicians have been storing the oil well tests in text files locally, the 
         * Big data 6V's (volume, value, variety, velocity, veracity, and Variability)
     * Data is provided in 3-month batches/cohorts.
     * Data scientists need access to CSV format and use AWS Sagemaker.
-    * SOLUTION: Use the current onsite MySQL database
+    * SOLUTION: Use the current onsite MySQL. Database: `energymobile`
         * REASON: The limited data volume and limited use do not justify cloud expense when cheap local storage is available. 
-    * SOLUTION: Export a CSV from the database and import it to an S3 bucket. 
+    * SOLUTION: Export a CSV from the database and import it to an S3 bucket. CSV: `oil-well-data-all-historical`
         * REASON: This will allow Sagemaker to have access to the data in the desired format. Creating the CSV from a database query is more efficient than scripting a program to create a combined CSV from the text files.
 * Database schema:
     * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) (see Snowflake schema below)
