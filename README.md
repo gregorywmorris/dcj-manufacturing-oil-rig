@@ -14,7 +14,6 @@ The technicians have been storing the oil well tests in text files locally, the 
 1. Convert the files to CSV for the data scientist.
     * See the example template CSV for the desired format.
     * Merge profile data.
-    * The scientists use AWS Sagemaker.
 3. Migrate the data to a database for future use.
 4. Complete missing data:
     * Add a date-time column.
@@ -30,6 +29,7 @@ The technicians have been storing the oil well tests in text files locally, the 
     * The data is considered as recorded every 60 minutes for project purposes. 
     * The last day will be a few hours short for scheduled maintenance after each cohort.
 4. There is only one profile.txt, reuse data as if there was one for each cohort.
+5. The scientists use AWS Sagemaker.
 
 ## System Design
 * Data: 

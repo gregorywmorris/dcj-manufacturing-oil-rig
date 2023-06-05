@@ -49,7 +49,7 @@ JOIN (
         sf.flag_description
     FROM target_condition tc
     JOIN cooler_condition cc on tc.cooler_condition = cc.cooler_id
-	JOIN valve_condition vc ON tc.valve_condition = vc.valve_id
+	  JOIN valve_condition vc ON tc.valve_condition = vc.valve_id
     JOIN internal_pump_leakage ipl on tc.internal_pump_leakage = ipl.leakage_level
     JOIN hydraulic_accumulator_bar hab on tc.hydraulic_accumulator_bar = hab.pressure_bar
     JOIN stable_flag sf on tc.stable_flag = sf.flag_value
