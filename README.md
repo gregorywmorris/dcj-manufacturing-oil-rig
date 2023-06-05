@@ -67,3 +67,4 @@ The technicians have been storing the oil well tests in text files locally, the 
 8. Run the `upload-aws.py` script; Uploads the database export CSV to the aws s3 folder.
 9. Run the `archive.py` script; archives the log and AWS directory CSVs.
  
+
