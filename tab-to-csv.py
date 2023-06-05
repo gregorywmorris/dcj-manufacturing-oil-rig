@@ -39,10 +39,9 @@ for files in os.listdir(path=data_location):
         df = pd.concat([df, df2], ignore_index=True)
         df2.drop(df2.iloc[0:0], axis=1, inplace=True)
 
-    # normalize column headers
     df.columns = [x.lower() for x in df.columns]
 
-
     # export
-    csv_filename = f'{file_name}.csv'
+    today = datetime.date.today()
+    csv_filename = f'{file_name}-{today}.csv'
     df.to_csv(r'./logs/' + csv_filename, index=False)
