@@ -44,14 +44,14 @@ The technicians have been storing the oil well tests in text files locally, the 
     * SOLUTION: Use the current onsite MySQL. Database: `energymobile`
         * REASON: The limited data volume and limited use do not justify cloud expense when cheap local storage is available. 
     * SOLUTION: Export a CSV from the database and import it to an S3 bucket. CSV: `oil-well-data-all-historical`
-        * REASON: This will allow Sagemaker to have access to the data in the desired format. Creating the CSV from a database query is more efficient than scripting a program to create a combined CSV from the text files.
+        * REASON: S3 will allow Sagemaker to have access to the data and CSV is the desired format. Creating the CSV from a database query is more efficient than scripting a program to create a combined CSV from the text files.
 * Database schema:
     * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) (see Snowflake schema below)
 * Process flow:
     * Initial: Manual batch processing to get historical data into production.
     * Future state: Schedule processing at the end of every cohort. Additional clarification is needed from operations.
-        * Can the data be provided at a set date and time?
         * Is there a lag time in data availability once the cohort completes?
+        * Can the data be provided at a set date and time?
         * Can the format or information be modified by the sending system?
 
 ![system design](images/system-design.jpg)
