@@ -1,7 +1,7 @@
 Condition monitoring of hydraulic systems
 =========================================
 
-Abstract: The data set addresses the condition assessment of a hydraulic test rig based on multi sensor data. Four fault types are superimposed with several severity grades impeding selective quantification.
+Abstract: The data set addresses the condition assessment of a hydraulic test rig based on multi-sensor data. Four fault types are superimposed with several severity grades impeding selective quantification.
 
 Source:
 Creator: ZeMA gGmbH, Eschberger Weg 46, 66121 Saarbr�cken
