@@ -17,7 +17,8 @@ The technicians have been storing the oil well tests in text files locally, the 
 3. Migrate the data to a database for future use.
 4. Complete missing data:
     * Add a date-time column.
-    * Provide cumulative 60-minute intervals.
+    * The data is considered as recorded every 60 minutes for project purposes. 
+        * Provide cumulative 60-minute intervals.
     
 
 ### Starting Knowledge
@@ -26,7 +27,6 @@ The technicians have been storing the oil well tests in text files locally, the 
 3. Data collection:
     * All changes must be done after you receive the data.
     * The data is collected in 3-month cohorts starting at midnight on the first day. 
-    * The data is considered as recorded every 60 minutes for project purposes. 
     * The last day will be a few hours short for scheduled maintenance after each cohort.
 4. There is only one profile.txt, reuse the data for each cohort.
 5. The scientists use AWS Sagemaker.
