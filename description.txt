@@ -1,10 +1,10 @@
 Condition monitoring of hydraulic systems
 =========================================
 
-Abtract: The data set addresses the condition assessment of a hydraulic test rig based on multi sensor data. Four fault types are superimposed with several severity grades impeding selective quantification.
+Abstract: The data set addresses the condition assessment of a hydraulic test rig based on multi sensor data. Four fault types are superimposed with several severity grades impeding selective quantification.
 
 Source:
-Creator: ZeMA gGmbH, Eschberger Weg 46, 66121 Saarbrücken
+Creator: ZeMA gGmbH, Eschberger Weg 46, 66121 Saarbrï¿½cken
 Contact: t.schneider@zema.de, s.klein@zema.de, m.bastuck@lmt.uni-saarland.de, info@lmt.uni-saarland.de
 Files: https://archive.ics.uci.edu/ml/machine-learning-databases/00447/
 
@@ -34,20 +34,20 @@ PS6		Pressure			bar		100 Hz
 EPS1	Motor power			W		100 Hz
 FS1		Volume flow			l/min	10 Hz
 FS2		Volume flow			l/min	10 Hz
-TS1		Temperature			°C		1 Hz
-TS2		Temperature			°C		1 Hz
-TS3		Temperature			°C		1 Hz
-TS4		Temperature			°C		1 Hz
+TS1		Temperature			ï¿½C		1 Hz
+TS2		Temperature			ï¿½C		1 Hz
+TS3		Temperature			ï¿½C		1 Hz
+TS4		Temperature			ï¿½C		1 Hz
 VS1		Vibration			mm/s	1 Hz
 CE		Cooling efficiency (virtual)	%		1 Hz
 CP		Cooling power (virtual)		kW		1 Hz
 SE		Efficiency factor		%		1 Hz
 
-The target condition values are cycle-wise annotated in ‘profile.txt‘ (tab-delimited). As before, the row number represents the cycle number. The columns are
+The target condition values are cycle-wise annotated in ï¿½profile.txtï¿½ (tab-delimited). As before, the row number represents the cycle number. The columns are
 
 1: Cooler condition / %:
 	3: close to total failure
-	20: reduced effifiency
+	20: reduced efficiency
 	100: full efficiency
 
 2: Valve condition / %:
@@ -61,7 +61,7 @@ The target condition values are cycle-wise annotated in ‘profile.txt‘ (tab-delim
 	1: weak leakage
 	2: severe leakage
 
-4: Hydraulic accumulator / bar:
+4: Hydraulic accumulator/bar:
 	130: optimal pressure
 	115: slightly reduced pressure
 	100: severely reduced pressure
@@ -72,9 +72,9 @@ The target condition values are cycle-wise annotated in ‘profile.txt‘ (tab-delim
 	1: static conditions might not have been reached yet
 
 Relevant Papers:
-[1] Nikolai Helwig, Eliseo Pignanelli, Andreas Schütze, ‘Condition Monitoring of a Complex Hydraulic System Using Multivariate Statistics’, in Proc. I2MTC-2015 - 2015 IEEE International Instrumentation and Measurement Technology Conference, paper PPS1-39, Pisa, Italy, May 11-14, 2015, doi: 10.1109/I2MTC.2015.7151267.
-[2] N. Helwig, A. Schütze, ‘Detecting and compensating sensor faults in a hydraulic condition monitoring system’, in Proc. SENSOR 2015 - 17th International Conference on Sensors and Measurement Technology, oral presentation D8.1, Nuremberg, Germany, May 19-21, 2015, doi: 10.5162/sensor2015/D8.1.
-[3] Tizian Schneider, Nikolai Helwig, Andreas Schütze, ‘Automatic feature extraction and selection for classification of cyclical time series data’, tm - Technisches Messen (2017), 84(3), 198–206, doi: 10.1515/teme-2016-0072.
+[1] Nikolai Helwig, Eliseo Pignanelli, Andreas Schï¿½tze, ï¿½Condition Monitoring of a Complex Hydraulic System Using Multivariate Statisticsï¿½, in Proc. I2MTC-2015 - 2015 IEEE International Instrumentation and Measurement Technology Conference, paper PPS1-39, Pisa, Italy, May 11-14, 2015, doi: 10.1109/I2MTC.2015.7151267.
+[2] N. Helwig, A. Schï¿½tze, ï¿½Detecting and compensating sensor faults in a hydraulic condition monitoring systemï¿½, in Proc. SENSOR 2015 - 17th International Conference on Sensors and Measurement Technology, oral presentation D8.1, Nuremberg, Germany, May 19-21, 2015, doi: 10.5162/sensor2015/D8.1.
+[3] Tizian Schneider, Nikolai Helwig, Andreas Schï¿½tze, ï¿½Automatic feature extraction and selection for classification of cyclical time series dataï¿½, tm - Technisches Messen (2017), 84(3), 198ï¿½206, doi: 10.1515/teme-2016-0072.
 
 Citation Requests:
-Nikolai Helwig, Eliseo Pignanelli, Andreas Schütze, ‘Condition Monitoring of a Complex Hydraulic System Using Multivariate Statistics’, in Proc. I2MTC-2015 - 2015 IEEE International Instrumentation and Measurement Technology Conference, paper PPS1-39, Pisa, Italy, May 11-14, 2015, doi: 10.1109/I2MTC.2015.7151267.
+Nikolai Helwig, Eliseo Pignanelli, Andreas Schï¿½tze, ï¿½Condition Monitoring of a Complex Hydraulic System Using Multivariate Statisticsï¿½, in Proc. I2MTC-2015 - 2015 IEEE International Instrumentation and Measurement Technology Conference, paper PPS1-39, Pisa, Italy, May 11-14, 2015, doi: 10.1109/I2MTC.2015.7151267.
