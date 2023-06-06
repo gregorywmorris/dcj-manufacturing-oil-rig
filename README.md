@@ -28,7 +28,7 @@ The technicians have been storing the oil well tests in text files locally, the 
     * The data is collected in 3-month cohorts starting at midnight on the first day. 
     * The data is considered as recorded every 60 minutes for project purposes. 
     * The last day will be a few hours short for scheduled maintenance after each cohort.
-4. There is only one profile.txt, reuse data as if there was one for each cohort.
+4. There is only one profile.txt, reuse the data for each cohort.
 5. The scientists use AWS Sagemaker.
 
 ## System Design
