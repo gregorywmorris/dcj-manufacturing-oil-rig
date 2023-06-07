@@ -41,7 +41,7 @@ The technicians have been storing the oil well tests in text files locally, the 
         * Big data 6V's (volume, value, variety, velocity, veracity, and Variability)
     * Data is provided in 3-month batches/cohorts.
     * Data scientists need access to CSV format and use AWS Sagemaker.
-    * SOLUTION: Use the current onsite MySQL. Database: `energymobile`
+    * SOLUTION: Use onsite MySQL. Database: `energymobile`
         * REASON: The limited data volume and limited use do not justify cloud expense when cheap local storage is available. 
     * SOLUTION: Export a CSV from the database and import it to an S3 bucket. CSV: `oil-well-data-all-historical`
         * REASON: S3 will allow Sagemaker to have access to the data and CSV is the desired format. Creating the CSV from a database query is more efficient than scripting a program to create a combined CSV from the text files.
@@ -49,10 +49,11 @@ The technicians have been storing the oil well tests in text files locally, the 
     * [Figjam](https://www.figma.com/file/wblGp1sxj3uJhKLCxmVHuY/energymobile---database-design?type=whiteboard&node-id=0-1&t=oId6SLpAnpLL8sIR-0) (see Snowflake schema below)
 * Process flow:
     * Initial: Manual batch processing to get historical data into production.
-    * Future state: Schedule processing at the end of every cohort. Additional clarification is needed from operations.
+    * Future state: Schedule processing at the end of every cohort. Additional clarification is needed from operations for the long-term management of new and archived data.
         * Is there a lag time in data availability once the cohort completes?
         * Can the data be provided at a set date and time?
         * Can the format or information be modified by the sending system?
+        * Do we have any operational requirements for the tab data to remain available or to remain in the archive for a specific period? 
 
 ![system design](images/system-design.jpg)
 
@@ -60,9 +61,9 @@ The technicians have been storing the oil well tests in text files locally, the 
 
 # Implementation
 ###### Infrastructure
-
+1. Docker image MySQL
 1. Run the `db_creation.sql` query; create the database in MySQL.
-1.  Create an AWS S3 bucket using AWS command line / Terraform with `s3-terraform.tf`.
+1. Create an AWS S3 bucket using AWS command line / Terraform with `s3-terraform.tf`.
 ###### ETL
 1. Import the oil well sensor logs into the logs folder and import the profile file into the profile folder.
 1. Run the `tab-to-csv.py` script; converts sensor logs to CSV.
