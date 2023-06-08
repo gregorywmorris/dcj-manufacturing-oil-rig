@@ -2,15 +2,14 @@ CREATE DATABASE IF NOT EXISTS energymobile;
 
 USE energymobile;
 
-DROP TABLE IF EXISTS target_condition;
-
+DROP TABLE IF EXISTS sensor_data; -- must be first
+DROP TABLE IF EXISTS well_profile; -- must be second
 DROP TABLE IF EXISTS sensors;
 DROP TABLE IF EXISTS cooler_condition;
 DROP TABLE IF EXISTS valve_condition;
 DROP TABLE IF EXISTS internal_pump_leakage;
 DROP TABLE IF EXISTS hydraulic_accumulator_bar;
 DROP TABLE IF EXISTS stable_flag;
-DROP TABLE IF EXISTS sensor_data;
 
 
 CREATE TABLE sensors (
@@ -53,26 +52,32 @@ CREATE TABLE stable_flag (
   PRIMARY KEY (flag_value)
 );
 
-CREATE TABLE sensor_data (
-  data_id int not null auto_increment,
-  sensor_name varchar(255),
-  date_time datetime,
-  cumulative_minutes int,
-  cohort int,
-  sensor_value float,
+CREATE TABLE well_profile (
+  profile_id int not null auto_increment,
   cooler_condition int,
   valve_condition int,
   internal_pump_leakage int,
   hydraulic_accumulator_bar int,
   stable_flag int,
-  PRIMARY KEY (data_id),
-  FOREIGN KEY (sensor_name) REFERENCES sensors(sensor_name),
-  FOREIGN KEY (target_condition) REFERENCES target_condition(condition_id),
+  PRIMARY KEY (profile_id),
   FOREIGN KEY (cooler_condition) REFERENCES cooler_condition(cooler_id),
   FOREIGN KEY (valve_condition) REFERENCES valve_condition(valve_id),
   FOREIGN KEY (internal_pump_leakage) REFERENCES internal_pump_leakage(leakage_level),
   FOREIGN KEY (hydraulic_accumulator_bar) REFERENCES hydraulic_accumulator_bar(pressure_bar),
   FOREIGN KEY (stable_flag) REFERENCES stable_flag(flag_value)
+);
+
+CREATE TABLE sensor_data (
+  data_id int not null auto_increment,
+  well_number int,
+  sensor_name varchar(255),
+  sensor_value float,
+  date_time datetime,
+  cumulative_minutes int,
+  well_profile int,
+  PRIMARY KEY (data_id),
+  FOREIGN KEY (sensor_name) REFERENCES sensors(sensor_name),
+  FOREIGN KEY (well_profile) REFERENCES well_profile(profile_id)
 );
 
 INSERT INTO cooler_condition

@@ -8,6 +8,7 @@ import ignore.secrets as secrets
 
 connection = connect(
     host='localhost',
+    port= 33061,
     user= secrets.mysql_username,
     password= secrets.mysql_password,
     database='energymobile',
@@ -35,7 +36,7 @@ for filename in os.listdir(profile_directory):
         column_names = ', '.join(columns)
 
         # Generate the SQL query
-        sql = f"INSERT INTO target_condition ({column_names}) VALUES ({placeholders})"
+        sql = f"INSERT INTO well_profile ({column_names}) VALUES ({placeholders})"
 
         # Iterate over the rows in the DataFrame
         for row in df.itertuples(index=False):
