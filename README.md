@@ -10,7 +10,7 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 
 The data set comes from a real hydraulic rig system. This hydraulic rig is used to drill oil out of the ground. It has 4 main controls: the cooler setting, the valve setting, the pump setting, and the accumulator setting. The rig has sensors in different areas measuring the pressure, volumetric flows, and temperatures.
 
-The technicians have been storing the oil well tests in text files locally, the data scientists would like to review the data but it's not in an ideal format. 
+The technicians have been running tests for maintenance and the data scientists believe the data may be useful for additional oil well analysis. 
 1. Convert the files to CSV for the data scientist.
     * See the example template CSV for the desired format.
     * Merge profile data.
@@ -22,14 +22,15 @@ The technicians have been storing the oil well tests in text files locally, the 
     
 
 ### Starting Knowledge
-1. There are 15 years' worth of data.
-2. The start date is 3/26/2008.
-3. Data collection:
+1. There are 16 oil wells.
+1. The start date is 4/26/2018.
+1. Tests are run in 3-month cohorts
+1. Data collection:
     * All changes must be done after you receive the data.
     * The data is collected in 3-month cohorts starting at midnight on the first day. 
     * The last day will be a few hours short for scheduled maintenance after each cohort.
-4. There is only one profile.txt, reuse the data for each cohort.
-5. The scientists use AWS Sagemaker.
+1. There is only one profile.txt; reuse the data for each oil well.
+1. The scientists use AWS Sagemaker.
 
 ## System Design
 * Data: 
@@ -61,7 +62,7 @@ The technicians have been storing the oil well tests in text files locally, the 
 
 # Implementation
 ###### Infrastructure
-1. Docker image MySQL
+1. Docker official MySQL image
 1. Run the `db_creation.sql` query; create the database in MySQL.
 1. Create an AWS S3 bucket using AWS command line / Terraform with `s3-terraform.tf`.
 ###### ETL
