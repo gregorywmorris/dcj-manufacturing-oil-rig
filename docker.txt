@@ -1,0 +1,6 @@
+NOTE: port 33061 is used on the local pc to avoid conflict. In a real scenario docker would be on a VM. 
+
+Docker commands:
+docker run --name energymobile -p 33061:3306 -e MYSQL_ROOT_PASSWORD=<my-secret-pw>  -d mysql:latest
+
+

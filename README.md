@@ -11,20 +11,21 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 The data set comes from a real hydraulic rig system. This hydraulic rig is used to drill oil out of the ground. It has 4 main controls: the cooler setting, the valve setting, the pump setting, and the accumulator setting. The rig has sensors in different areas measuring the pressure, volumetric flows, and temperatures.
 
 The technicians have been running tests for maintenance and the data scientists believe the data may be useful for additional oil well analysis. 
+**Objectives:**
 1. Convert the files to CSV for the data scientist.
     * See the example template CSV for the desired format.
-    * Merge profile data.
+    * Add profile data - numerical and descriptive
 3. Migrate the data to a database for future use.
-4. Complete missing data:
+4. Add missing data:
     * Add a date-time column.
     * The data is considered as recorded every 60 minutes for project purposes. 
-        * Provide cumulative 60-minute intervals.
+        * Provide cumulative 60-minute intervals for the length of the cohort.
     
 
 ### Starting Knowledge
 1. There are 16 oil wells.
 1. The start date is 4/26/2018.
-1. Tests are run in 3-month cohorts
+1. Tests are run in 3-month cohorts.
 1. Data collection:
     * All changes must be done after you receive the data.
     * The data is collected in 3-month cohorts starting at midnight on the first day. 
@@ -54,7 +55,7 @@ The technicians have been running tests for maintenance and the data scientists 
         * Is there a lag time in data availability once the cohort completes?
         * Can the data be provided at a set date and time?
         * Can the format or information be modified by the sending system?
-        * Do we have any operational requirements for the tab data to remain available or to remain in the archive for a specific period? 
+        * Do we have any operational requirements for the tab data to remain available or to remain in the archive for a specific period of time? 
 
 ![system design](images/system-design.jpg)
 
