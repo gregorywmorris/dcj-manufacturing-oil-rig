@@ -63,7 +63,7 @@ The technicians have been running tests for maintenance and the data scientists 
 
 # Implementation
 ###### Infrastructure
-1. Docker official MySQL image
+1. Docker official MySQL image; steps listed in `docker.txt`.
 1. Run the `db_creation.sql` query; create the database in MySQL.
 1. Create an AWS S3 bucket using AWS command line / Terraform with `s3-terraform.tf`.
 ###### ETL

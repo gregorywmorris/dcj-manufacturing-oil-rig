@@ -1,6 +1,16 @@
-NOTE: port 33061 is used on the local pc to avoid conflict. In a real scenario docker would be on a VM. 
+NOTE: using Windows WSL
 
-Docker commands:
-docker run --name energymobile -p 33061:3306 -e MYSQL_ROOT_PASSWORD=<my-secret-pw>  -d mysql:latest
+docker pull mysql:latest
 
+mkdir -p mkdir -p /mnt/d/storage/docker/energymobile-data
 
+docker run \
+--detach \
+--name=energymobile \
+--env="MYSQL_ROOT_PASSWORD= " \
+--publish 33061:3306 \
+--volume=/root/docker/energymobile/conf.d:/etc/mysql/conf.d \
+--volume=/d/storage/docker/energymobile-data:/var/lib/mysql \
+mysql
+
+docker start energymobile
