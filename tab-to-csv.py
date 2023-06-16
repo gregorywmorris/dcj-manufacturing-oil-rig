@@ -3,6 +3,12 @@ import os
 import datetime
 
 
+# profile
+profile_location = r'./profile/profile.txt'
+profile_df = pd.read_table(profile_location, index_col=False, header=None, delim_whitespace=True, encoding='latin-1')
+profile_columns = ['cooler_condition', 'valve_condition', 'internal_pump_leakage', 'hydraulic_accumulator_bar', 'stable_flag']
+profile_df.columns = profile_columns
+
 def iterateRange(files,file_name,name,data_df):
     for i in range(60):
         df2 = pd.DataFrame(columns=['sensor_value'])  # Add columns and index, will get index error otherwise
@@ -25,12 +31,6 @@ def iterateRange(files,file_name,name,data_df):
     csv_filename = f'{file_name}.csv'
     data_df.to_csv(r'./ignore/texas/data-csv/' + csv_filename, index=False)
 
-
-# profile
-profile_location = r'./profile/profile.txt'
-profile_df = pd.read_table(profile_location, index_col=False, header=None, delim_whitespace=True, encoding='latin-1')
-profile_columns = ['cooler_condition', 'valve_condition', 'internal_pump_leakage', 'hydraulic_accumulator_bar', 'stable_flag']
-profile_df.columns = profile_columns
 
 # data
 data_location = r'./ignore/texas/data/'
