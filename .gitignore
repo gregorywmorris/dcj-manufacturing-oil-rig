@@ -1,11 +1,5 @@
 # Private folders
 ignore/
-data/
-logs/
-profile/
-aws_s3/
-archive/
-merged/
 
 # Template from https://github.com/github/gitignore/blob/main/Python.gitignore 
 # Byte-compiled / optimized / DLL files
