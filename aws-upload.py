@@ -12,7 +12,7 @@ s3 = boto3.client(
 )
 
 # Upload files
-csv_directory = './aws_s3/'
+csv_directory = '.ignore/aws_s3/'
 bucket_name = 'well-sensor-logs'
 
 for root, dirs, files in os.walk(csv_directory):

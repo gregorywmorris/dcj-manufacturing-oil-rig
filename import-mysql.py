@@ -1,7 +1,6 @@
 from mysql.connector import connect
 import os
 import pandas as pd
-import shutil
 # private file with sensitive data
 import ignore.secrets as secrets
 
@@ -15,62 +14,28 @@ connection = connect(
 )
 
 # object to exicute the sql queries
-cursor = connection.cursor()
+my_cursor = connection.cursor()
 
-profile_directory = './profile/'
+data_location = r'./ignore/texas/data-csv/'
 
-for filename in os.listdir(profile_directory):
-    if filename.endswith('.csv'):
-        csv_file_path = os.path.join(profile_directory, filename)
-        file_name, file_ext = os.path.splitext(filename)
-        # Read the CSV file into a pandas DataFrame
-        df = pd.read_csv(csv_file_path)
+for filename in os.listdir(data_location):
+    csv_file_path = os.path.join(data_location, filename)
+    df = pd.read_csv(csv_file_path)
+    columns = df.columns.tolist()
 
-        # Get the column names from the DataFrame
-        columns = df.columns.tolist()
+    # Generate the placeholders for the SQL query
+    placeholders = ', '.join(['%s'] * len(columns))
 
-        # Generate the placeholders for the SQL query
-        placeholders = ', '.join(['%s'] * len(columns))
+    # Generate the column names for the SQL query
+    column_names = ', '.join(columns)
 
-        # Generate the column names for the SQL query
-        column_names = ', '.join(columns)
+    # Generate the SQL query
+    sql = f"INSERT INTO sensor_data ({column_names}) VALUES ({placeholders})"
 
-        # Generate the SQL query
-        sql = f"INSERT INTO well_profile ({column_names}) VALUES ({placeholders})"
-
-        # Iterate over the rows in the DataFrame
-        for row in df.itertuples(index=False):
-            # Execute the SQL query for each row
-            cursor.execute(sql, row)
-
-
-logs_directory = './logs/'
-
-for filename in os.listdir(logs_directory):
-    if filename.endswith('.csv'):
-        csv_file_path = os.path.join(logs_directory, filename)
-        file_name, file_ext = os.path.splitext(filename)
-        # Read the CSV file into a pandas DataFrame
-        df = pd.read_csv(csv_file_path)
-
-        # Get the column names from the DataFrame
-        columns = df.columns.tolist()
-
-        # Generate the placeholders for the SQL query
-        placeholders = ', '.join(['%s'] * len(columns))
-
-        # Generate the column names for the SQL query
-        column_names = ', '.join(columns)
-
-        # Generate the SQL query
-        sql = f"INSERT INTO sensor_data ({column_names}) VALUES ({placeholders})"
-
-        # Iterate over the rows in the DataFrame
-        for row in df.itertuples(index=False):
-            # Execute the SQL query for each row
-            cursor.execute(sql, row)
+    for row in df.itertuples(index=False):
+        my_cursor.execute(sql, row)
 
 connection.commit()
 
-cursor.close()
+my_cursor.close()
 connection.close()

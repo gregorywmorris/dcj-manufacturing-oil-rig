@@ -1,19 +1,19 @@
 use energymobile;
 
 SELECT
-	sd.well_number,
+	sd.well_name,
 	sd.date_time,
 	sd.cumulative_minutes,
-	wp.cooler_percentage,
-    wp.cooler_description,
-	wp.valve_percentage,
-    wp.valve_description,
-	wp.internal_pump_leakage,
-	wp.pump_description,
-    wp.hydraulic_accumulator_bar,
-	wp.hydraulic_description,
-	wp.stable_flag,
-	wp.flag_description,
+	sd.cooler_percentage,
+    .cooler_description,
+	sd.valve_percentage,
+    .valve_description,
+	sd.internal_pump_leakage,
+	.pump_description,
+    sd.hydraulic_accumulator_bar,
+	.hydraulic_description,
+	sd.stable_flag,
+	.flag_description,
   MAX(CASE WHEN sd.sensor_name = 'PS1' THEN sd.sensor_value END) AS pressure_bar_1,
   MAX(CASE WHEN sd.sensor_name = 'PS2' THEN sd.sensor_value END) AS pressure_bar_2,
   MAX(CASE WHEN sd.sensor_name = 'PS3' THEN sd.sensor_value END) AS pressure_bar_3,
@@ -33,13 +33,12 @@ SELECT
   MAX(CASE WHEN sd.sensor_name = 'SE' THEN sd.sensor_value END) AS efficiency_factor_percent
 FROM
   sensor_data sd
-  -- JOIN well_profile wp ON sd.well_profile = wp.condition_id
 JOIN (
 	select
-		wp.profile_id,
-		wp.internal_pump_leakage,
-		wp.hydraulic_accumulator_bar,
-		wp.stable_flag,
+		sd.profile_id,
+		sd.internal_pump_leakage,
+		sd.hydraulic_accumulator_bar,
+		sd.stable_flag,
         cc.cooler_description,
         cc.cooler_percentage,
         vc.valve_description,
@@ -47,26 +46,26 @@ JOIN (
         ipl.pump_description,
         hab.hydraulic_description,
         sf.flag_description
-    FROM well_profile wp
-    JOIN cooler_condition cc on wp.cooler_condition = cc.cooler_id
-	JOIN valve_condition vc ON wp.valve_condition = vc.valve_id
-    JOIN internal_pump_leakage ipl on wp.internal_pump_leakage = ipl.leakage_level
-    JOIN hydraulic_accumulator_bar hab on wp.hydraulic_accumulator_bar = hab.pressure_bar
-    JOIN stable_flag sf on wp.stable_flag = sf.flag_value
-  ) AS wp on sd.well_profile = wp.profile_id
+    FROM well_profile sd
+    JOIN cooler_condition cc on sd.cooler_condition = cc.cooler_id
+	JOIN valve_condition vc ON sd.valve_condition = vc.valve_id
+    JOIN internal_pump_leakage ipl on sd.internal_pump_leakage = ipl.leakage_level
+    JOIN hydraulic_accumulator_bar hab on sd.hydraulic_accumulator_bar = hab.pressure_bar
+    JOIN stable_flag sf on sd.stable_flag = sf.flag_value
+  ) AS sd on sd.well_profile = sd.profile_id
 GROUP BY
-	sd.well_number,
+	sd.well_name,
 	sd.date_time,
 	sd.cumulative_minutes,
-	wp.cooler_percentage,
-    wp.cooler_description,
-	wp.valve_percentage,
-    wp.valve_description,
-	wp.internal_pump_leakage,
-	wp.pump_description,
-    wp.hydraulic_accumulator_bar,
-	wp.hydraulic_description,
-	wp.stable_flag,
-	wp.flag_description
+	sd.cooler_percentage,
+    .cooler_description,
+	sd.valve_percentage,
+    .valve_description,
+	sd.internal_pump_leakage,
+	.pump_description,
+    sd.hydraulic_accumulator_bar,
+	.hydraulic_description,
+	sd.stable_flag,
+	.flag_description
 ORDER BY
-  sd.well_number;
+  sd.well_name;
