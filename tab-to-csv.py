@@ -9,7 +9,8 @@ profile_df = pd.read_table(profile_location, index_col=False, header=None, delim
 profile_columns = ['cooler_condition', 'valve_condition', 'internal_pump_leakage', 'hydraulic_accumulator_bar', 'stable_flag']
 profile_df.columns = profile_columns
 
-def iterateRange(files,file_name,name,data_df):
+def iterateRange():
+    data_df = pd.DataFrame()
     for i in range(60):
         df2 = pd.DataFrame(columns=['sensor_value'])  # Add columns and index, will get index error otherwise
         df2['sensor_value'] = pd.read_table(f'./ignore/texas/data/{files}', index_col=False, delim_whitespace=True, header=None, usecols=[i], encoding='latin-1')
@@ -38,7 +39,6 @@ data_location = r'./ignore/texas/data/'
 for files in os.listdir(path=data_location):
     file_name, file_ext = os.path.splitext(files)
     name = file_name[:-11]
-    data_df = pd.DataFrame()
-    iterateRange(files,file_name,name,data_df)
+    iterateRange()
 
 print("CSV files complete")
