@@ -10,19 +10,20 @@ Oil wells can make $500,000+ / day, so these machines are highly valuable. Makin
 
 The data set comes from a real hydraulic rig system. This hydraulic rig is used to drill oil out of the ground. It has 4 main controls: the cooler setting, the valve setting, the pump setting, and the accumulator setting. The rig has sensors in different areas measuring the pressure, volumetric flows, and temperatures.
 
-The technicians have been running tests for maintenance and the data scientists believe the data may be useful for additional oil well analysis. 
+The technicians have been running tests for maintenance and the data scientists believe the data may be useful for additional oil well analysis. This is for the Texas location only. 
 **Objectives:**
 1. Convert the files to CSV for the data scientist.
     * See the example template CSV for the desired format.
     * Add profile data - numerical and descriptive
-3. Migrate the data to a database for future use.
-4. Add missing data:
+1. Migrate the data to a database for future use.
+1. Add missing data:
     * Add a date-time column.
     * The data is considered as recorded every 60 minutes for project purposes. 
         * Provide cumulative 60-minute intervals for the length of the cohort.
     
 
 ### Starting Knowledge
+1. Texas location only.
 1. There are 16 oil wells.
 1. The start date is 4/26/2018.
 1. Tests are run in 3-month cohorts.
@@ -42,7 +43,7 @@ The technicians have been running tests for maintenance and the data scientists 
     * Does not meet the requirements of big data.
         * Big data 6V's (volume, value, variety, velocity, veracity, and Variability)
     * Data is provided in 3-month batches/cohorts.
-    * Data scientists need access to CSV format and use AWS Sagemaker.
+    * Data scientists want access to CSV format and use AWS Sagemaker.
     * SOLUTION: Use onsite MySQL. Database: `energymobile`
         * REASON: The limited data volume and limited use do not justify cloud expense when cheap local storage is available. 
     * SOLUTION: Export a CSV from the database and import it to an S3 bucket. CSV: `oil-well-data-all-historical`
@@ -59,7 +60,7 @@ The technicians have been running tests for maintenance and the data scientists 
 
 ![system design](images/system-design.jpg)
 
-![database design](images/db-design.jpg)
+![database design](images/energy-mobile-er-diagram.png)
 
 # Implementation
 ###### Infrastructure
