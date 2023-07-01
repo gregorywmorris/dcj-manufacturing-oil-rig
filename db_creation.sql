@@ -54,12 +54,11 @@ CREATE TABLE stable_flag (
 
 CREATE TABLE sensor_data (
   data_id int not null auto_increment,
-  well_name varchar(255),
+  rig_name varchar(255),
   sensor_name varchar(255),
   sensor_value float,
   date_time datetime,
   cumulative_minutes int,
-  well_profile int,
   cooler_condition int,
   valve_condition int,
   internal_pump_leakage int,

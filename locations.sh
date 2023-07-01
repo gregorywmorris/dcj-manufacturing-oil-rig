@@ -1,0 +1,32 @@
+cd /mnt/d/ds_projects/dcj-manufacturing-oil-rig/ignore/locations/
+mkdir -p east-java/ \
+    papua-new-guinea/ \
+    guyana/ \
+    hadrian-south/ \
+    permian-basin/ \
+    bakken-formation/ \
+    woodford-shale/ \
+    caney-shale/ \
+    cali-off-shore/ \
+    cali-kearl/ \
+    canada/ \
+    argentina/ \
+    germany/ \
+    netherlands/ \
+    norway/ \
+    united-kingdom/ \
+    angola/ \
+    chad/ \
+    equitor-guinea/ \
+    nigeria/ \
+    liberia/ \
+    ivory-coast/ \
+    azerbaijan/ \
+    indonesia/ \
+    kazakhstan/ \
+    malaysia/ \
+    quatar/ \
+    yemmen/ \
+    thailand/ \
+    uae/ \
+    australia/ \

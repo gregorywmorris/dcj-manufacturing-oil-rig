@@ -13,7 +13,7 @@ provider "aws" {
 }
 
 resource "aws_s3_bucket" "s3_bucket" {
-  bucket = "well-sensor-logs"
+  bucket = "oil-rig-sensor-logs"
 }
 
 resource "aws_s3_bucket_public_access_block" "s3_block" {

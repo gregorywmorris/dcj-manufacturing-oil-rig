@@ -13,7 +13,7 @@ s3 = boto3.client(
 
 # Upload files
 csv_directory = '.ignore/aws_s3/'
-bucket_name = 'well-sensor-logs'
+bucket_name = 'oil-rig-sensor-logs'
 
 for root, dirs, files in os.walk(csv_directory):
     for filename in files:
