@@ -19,8 +19,6 @@ The technicians have been running tests for maintenance and the data scientists 
 1. Add missing data:
     * Add a date-time column.
     * The data is considered as recorded every 60 minutes for project purposes. 
-        * Provide cumulative 60-minute intervals for the length of the cohort.
-    
 
 ### Starting Knowledge
 1. Global locations. See `locations.py`.
